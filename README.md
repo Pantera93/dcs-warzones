@@ -1,6 +1,6 @@
-# Digital Combat Simulator "WARZONES"
+# WARZONES
 
-### Are you searching for a dynamic, persistent, randomized, customizable, simple to install and simple to configure script for your missions? Then D.C.S "WARZONES" may be what you are looking for!
+### Are you searching for a dynamic, persistent, randomized, customizable, simple to install and simple to configure script for your missions? Then D.C.S. "WARZONES" may be what you are looking for!
 
 ## What is "WARZONES"?
 
