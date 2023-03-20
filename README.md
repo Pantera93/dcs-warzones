@@ -19,7 +19,7 @@ It is also compatible with DSMC to achieve random date or weather swapping (just
 
 ## How to use "WARZONES"?
 
-Grab the last warzones_x.x.lua release from [HERE](https://github.com/Pantera93/dcs-warzones/releases/download/0.1/warzones_0.1.lua). It is a single LUA file.
+Grab the last warzones_x.x.lua release from [HERE](https://github.com/Pantera93/dcs-warzones/releases). It is a single LUA file.
 
 Enter DCS Mission Editor and create a new mission (or open an existing one). BEWARE! WARZONES uses a randomized function to select which country to assign the spawned groups to, based on the pools available for each coalition defined for the mission. So, if you don't want to find an F-14 flown by the "Italian Social Republic", be sure to set for Blue and Red ONLY the countries you actually want to use, the others must go to NEUTRAL. It's not that it doesn't work, but it will definitely break the immersion.
 
