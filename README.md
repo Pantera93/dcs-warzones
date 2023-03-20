@@ -19,7 +19,7 @@ It is also compatible with DSMC to achieve random date or weather swapping (just
 
 ## How to use "WARZONES"?
 
-Grab the last warzones.x.x.x.lua release from here: LINK . It is a single LUA file.
+Grab the last warzones_x.x.lua release from [HERE](). It is a single LUA file.
 
 Enter DCS Mission Editor and create a new mission (or open an existing one). BEWARE! WARZONES uses a randomized function to select which country to assign the spawned groups to, based on the pools available for each coalition defined for the mission. So, if you don't want to find an F-14 flown by the "Italian Social Republic", be sure to set for Blue and Red ONLY the countries you actually want to use, the others must go to NEUTRAL. It's not that it doesn't work, but it will definitely break the immersion.
 
@@ -29,7 +29,7 @@ Create a new TRIGGER ZONE and call it "WAR-WHATEVER_YOU_WANT". The important sec
 
 Increase the zone size to cover the area where you want to operate (RED units will spawn and move inside the zone perimeter).
 
-Add a new TRIGGER ACTION in the editor to go ONCE, when TIME IS MORE than 1 SECOND, and it has to DO SCRIPT FILE warzones.x.x.x.lua, just like below:
+Add a new TRIGGER ACTION in the editor to go ONCE, when TIME IS MORE than 1 SECOND, and it has to DO SCRIPT FILE warzones_x.x.lua, just like below:
 
 ![](Images/trigger.jpg)
 
@@ -136,7 +136,7 @@ Now to the core section of this guide, the table of properties you can use in ea
 A special mention here has to be done for "comma separated string" values. These values are meant to create a probability distribution for the values in it. It's better to explain it with an example:
 
 * The value of the field "cap" for a zone is "_M21,MF1_". This means that there's a 50-50% chance to have either a Mig-21 group as next spawn or a Mirage-F1.<br/>
-* In another zone, the field value is "_M21_". This means that the only group type spawning for RED CAP is a Mig-21 group. 
+* In another zone, the field value is "_M21_". This means that the only group type spawning for RED CAP is a Mig-21 group.
 * In yet another zone, the field value is "_M19,M21,M21,M21,MF1_". This means that there is a 20% (20% x 1) chance to spawn a Mig-19 group, a 60% chance (20% x 3) to spawn a Mig-21 group and a 20% (20% x 1) chance to spawn Mirage-F1.
 
 Commas in these type of fields should not be followed or preceded by spaces (string "_M21, M19_" WILL NOT WORK)
@@ -216,7 +216,7 @@ Using an airfield as runway is available only for "Airbase" type (no Carriers, n
 
 If no airfields are available, the spawning point is automatically set as "Air".
 
-BEWARE! There are airfields that are defined as "Airbase", but don't allow some AI jets to take-off (runway too short). Better not use them as coalition-assigned, or to use "Air" as "starttype" if they have to be used by clients. 
+BEWARE! There are airfields that are defined as "Airbase", but don't allow some AI jets to take-off (runway too short). Better not use them as coalition-assigned, or to use "Air" as "starttype" if they have to be used by clients.
 
 ## TEMPLATES DEFINITION
 
