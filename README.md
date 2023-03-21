@@ -94,7 +94,7 @@ WARZONES configuration is quite simple to perform, but it's maybe hard to unders
 
 First of all, to configure WARZONES, you have to add and set its PROPERTIES. This is a mission editor trigger zone section you can find under the zone color picker. for each configuration you want to change, you simply add a property, use a specific name for the "key" (left) field and then input your custom "value" (right) field.
 
-
+![](Images/zone.jpg)
 
 You can configure zones GLOBALLY or INDIVIDUALLY. Specifically, every configuration set in the individual zone will overwrite the global one. Individual configuration is performed directly in each zone, GLOBAL configuration is done via a special WARZONE called "WAR-CONFIG". Placing a trigger zone with this specific name will not use it as a conflict zone, but it will use its configuration properties as a default for every other WARZONE in the mission. It will also give you access to some global-only configurations (the persistence file name to save, for example). The WAR-CONFIG zone is particularly useful for mission with many WARZONES.
 
@@ -321,6 +321,7 @@ Actual plans are:
 * Add Static objects support for ZONE TARGETS
 * Add possibility to define custom group templates from editor and use them in probability lists
 * If possible, support squared-shaped zones
+* Persistence in client slot usage
 
 ## How to sanitize my DCS?
 
