@@ -1,6 +1,6 @@
-# WARZONES
+# Digital Combat Simulator "WARZONES"
 
-### Are you searching for a dynamic, persistent, randomized, customizable, simple to install and simple to configure script for your missions? Then D.C.S. "WARZONES" may be what you are looking for!
+### Are you searching for a dynamic, persistent, randomized, customizable, simple to install and simple to configure script for your missions? Then D.C.S "WARZONES" may be what you are looking for!
 
 ## What is "WARZONES"?
 
@@ -17,9 +17,11 @@ It focuses on a PvE BLUE Client vs. RED A.I. scenario, even though it can suppor
 Being standalone, WARZONES doesn't need any additional framework, but it is fully compatible to be used along with others (Mist, Moose, CTLD,...).
 It is also compatible with DSMC to achieve random date or weather swapping (just DISABLE the option to keep spawned units on DSMC special page).
 
+WARZONES will be forever free, but if you feel like it, I will gladly accept a beer from you here: https://www.buymeacoffee.com/pantera93
+
 ## How to use "WARZONES"?
 
-Grab the last warzones_x.x.lua release from [HERE](https://github.com/Pantera93/dcs-warzones/releases). It is a single LUA file.
+Grab the last warzones_x.x.lua release from [HERE](https://github.com/Pantera93/dcs-warzones/releases/download/0.1/warzones_0.1.lua). It is a single LUA file.
 
 Enter DCS Mission Editor and create a new mission (or open an existing one). BEWARE! WARZONES uses a randomized function to select which country to assign the spawned groups to, based on the pools available for each coalition defined for the mission. So, if you don't want to find an F-14 flown by the "Italian Social Republic", be sure to set for Blue and Red ONLY the countries you actually want to use, the others must go to NEUTRAL. It's not that it doesn't work, but it will definitely break the immersion.
 
@@ -48,13 +50,13 @@ The script will create the necessary configuration as soon as it starts (When mi
 * 1 CAP Group with 2 units will patrol the area and engage every (visible) BLUE air unit inside the zone. Their skill will be randomly picked for each unit from "Rookie" or "Good". The group will be of Mig-19s, Mig-21s, Mirage F-1s, Mig-23s or Mig-29s in a descending probability from first to last. They will be armed for A-A combat according to their arsenal.
 * 2 Ground groups with 4 units each will start to move inside the zone in a patrolling fashion. Units will be a mix of light, medium and heavy armored targets, with the probability of having AAA units for self-defense. "Weaker" and "less capable" (trucks) units have higher probability of spawning.
 * 2 SAM Nests will be placed in the zone. There's a remote probability to have a SA2 sam site active, or to have a RED ground EWR Radar that will guide red CAP to intercept you. Otherwise, you will face SA8 or SA9 or similar threats.
-* 1 BLUE CAP Group on strike frequency 257.000 MHz with 2 units will be patrolling the zone. It will be a group of F4s or F14s. This group will be INVISIBLE and on WEAPONS HOLD until a unit is killed in the zone, or you issue them with the radio command to engage (See [HOW TO PLAY](#how-should-i-play-warzones) section).
+* 1 BLUE CAP Group on strike frequency 257.000 MHz with 2 units will be patrolling the zone. It will be a group of F4s or F14s. This group will be INVISIBLE and on WEAPONS HOLD until a unit is killed in the zone, or you issue them with the radio command to engage (See "HOW TO PLAY" section).
 * 1 INVISIBLE BLUE MQ-9 reaper drone will automatically lase a ground target on laser frequency 1578.
 * Some random black smoke effects will be placed in the area
 
 The red resource count is of 6 cap units and 12 ground units. As you destroy units, these numbers are updated accordingly. When an entire group is destroyed and if red resources are still available, a new one will be automatically spawned each minute. SAM groups will not respawn.
 
-Along with units, you will now have access to a "WARZONES" section in the "F10 Other" radio commands. Inside you will find commands to select the zone of interest, check the economic status of the mission (See [HOW TO PLAY](#how-should-i-play-warzones) and [HOW TO CONFIGURE](#how-to-configure-warzones)) and call functional supports on the zone selected.
+Along with units, you will now have access to a "WARZONES" section in the "F10 Other" radio commands. Inside you will find commands to select the zone of interest, check the economic status of the mission (See "HOW TO PLAY" and "HOW TO CONFIGURE") and call functional supports on the zone selected.
 
 ![](Images/radio1.jpg)![](Images/radio2.jpg)
 
@@ -94,7 +96,7 @@ WARZONES configuration is quite simple to perform, but it's maybe hard to unders
 
 First of all, to configure WARZONES, you have to add and set its PROPERTIES. This is a mission editor trigger zone section you can find under the zone color picker. for each configuration you want to change, you simply add a property, use a specific name for the "key" (left) field and then input your custom "value" (right) field.
 
-![](Images/zone.jpg)
+IMAGE
 
 You can configure zones GLOBALLY or INDIVIDUALLY. Specifically, every configuration set in the individual zone will overwrite the global one. Individual configuration is performed directly in each zone, GLOBAL configuration is done via a special WARZONE called "WAR-CONFIG". Placing a trigger zone with this specific name will not use it as a conflict zone, but it will use its configuration properties as a default for every other WARZONE in the mission. It will also give you access to some global-only configurations (the persistence file name to save, for example). The WAR-CONFIG zone is particularly useful for mission with many WARZONES.
 
@@ -114,21 +116,22 @@ Now to the core section of this guide, the table of properties you can use in ea
 
 ### GLOBAL-ONLY MONEY-RELATED PROPERTIES:
 
-| PROPERTY | DEFAULT | NOTES                                                                                                                     |
-| --- | --- |---------------------------------------------------------------------------------------------------------------------------|
-| capgain | 800 | Amount of money received when destroying a RED unit belonging to a CAP Group                                              |
-| groundgain | 150 | Amount of money received when destroying a RED unit belonging to a Ground group                                           |
-| samgain | 200 | Amount of money received when destroying a RED unit belonging to a SAM Group                                              |
-| shipgain | 500 | Amount of money received when destroying a RED unit belonging to a SHIP Group                                             |
-| awacsgain | 1500 | Amount of money received when destroying a RED AWACS unit                                                                 |
-| tgtgain | 1000 | Amount of money received when destroying a RED unit belonging to a ZONE TARGET Group                                      |
-| increasecapmoney | 5000 | Money required to permanently increase bluecaplimit in a zone                                                             |
-| jtacmoney | 1500 | Money required to permanently activate Autolase JTAC for the first ground group and the first target zone group in a zone |
-| groundcoordmoney | 2000 | Money required to permanently activate coordinates reports for a zone for RED Ground groups moving in the area            |
-| tgtcoordmoney | 2500 | Money required to permanently activate coordinates reports for a zone for ZONE TARGET groups in the area                  |
-| awacsmoney | 2500 | Money required to permanently activate BRA calls in the report for a zone for every RED CAP group in the area             |
-| smokemoney | 800 | Money required to pop smoke in a zone on RED Ground groups, zone targets,  sam sites and ships                            |
-| freezonemoney | 800 | Money required to make BLUE units in a zone VISIBLE and WEAPONS FREE                                                      |
+| PROPERTY         | DEFAULT | NOTES                                                                                                                     |
+|------------------|---------|---------------------------------------------------------------------------------------------------------------------------|
+| capgain          | 800     | Amount of money received when destroying a RED unit belonging to a CAP Group                                              |
+| groundgain       | 150     | Amount of money received when destroying a RED unit belonging to a Ground group                                           |
+| samgain          | 200     | Amount of money received when destroying a RED unit belonging to a SAM Group                                              |
+| shipgain         | 500     | Amount of money received when destroying a RED unit belonging to a SHIP Group                                             |
+| awacsgain        | 1500    | Amount of money received when destroying a RED AWACS unit                                                                 |
+| tgtgain          | 1000    | Amount of money received when destroying a RED unit belonging to a ZONE TARGET Group                                      |
+| increasecapmoney | 5000    | Money required to permanently increase bluecaplimit in a zone                                                             |
+| jtacmoney        | 1500    | Money required to permanently activate Autolase JTAC for the first ground group and the first target zone group in a zone |
+| groundcoordmoney | 2000    | Money required to permanently activate coordinates reports for a zone for RED Ground groups moving in the area            |
+| tgtcoordmoney    | 2500    | Money required to permanently activate coordinates reports for a zone for ZONE TARGET groups in the area                  |
+| awacsmoney       | 2500    | Money required to permanently activate BRA calls in the report for a zone for every RED CAP group in the area             |
+| smokemoney       | 800     | Money required to pop smoke in a zone on RED Ground groups, zone targets,  sam sites and ships                            |
+| freezonemoney    | 800     | Money required to make BLUE units in a zone VISIBLE and WEAPONS FREE                                                      |
+| blueloss         | 0       | Amount of money lost when a BLUE CAP unit or a BLUE Player controlled unit is killed (must be a positive value if used)   |
 
 
 ### GLOBAL AND ZONE-SPECIFIC PROPERTIES:
@@ -136,41 +139,41 @@ Now to the core section of this guide, the table of properties you can use in ea
 A special mention here has to be done for "comma separated string" values. These values are meant to create a probability distribution for the values in it. It's better to explain it with an example:
 
 * The value of the field "cap" for a zone is "_M21,MF1_". This means that there's a 50-50% chance to have either a Mig-21 group as next spawn or a Mirage-F1.<br/>
-* In another zone, the field value is "_M21_". This means that the only group type spawning for RED CAP is a Mig-21 group.
+* In another zone, the field value is "_M21_". This means that the only group type spawning for RED CAP is a Mig-21 group. 
 * In yet another zone, the field value is "_M19,M21,M21,M21,MF1_". This means that there is a 20% (20% x 1) chance to spawn a Mig-19 group, a 60% chance (20% x 3) to spawn a Mig-21 group and a 20% (20% x 1) chance to spawn Mirage-F1.
 
 Commas in these type of fields should not be followed or preceded by spaces (string "_M21, M19_" WILL NOT WORK)
 
-| PROPERTY       | VALUE                   | DEFAULT              | NOTES                                                                                                                                                                                                                                                                                                           |
-|----------------|-------------------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| template       | "ECW" or "LCW" or "MOD" | LCW                  | The units type template pack to be used in the zone. Setting templates will assign by default the fields cap, bluecap, sam, groundunits and shipunits to simulate an Early Cold War "ECW", Cold War "LCW" or Modern "MOD" scenario. Setting one of the above fields in the zone will remove the template usage. |
-| invert         | "0" or "1"              | 0                    | When using the template logic, setting invert to "1" will assign cap as bluecap and vice-versa. A special bluesam field in templates is used to assign the sam field.                                                                                                                                           |
-| cap            | comma separated string  | same as [LCW](#lcw) cap field | The probability list of units to be used as RED CAP in the zone. The available values are the ones defined in [CAP TEMPLATES](#cap). Empty string will use defaults.                                                                                                                                            |
-| bluecap        | comma separated string  | same as [LCW](#lcw) bluecap field | The probability list of units to be used as BLUE CAP in the zone. The available values are the ones defined in [CAP TEMPLATES](#cap). Empty string will use defaults.                                                                                                                                           |
-| sam            | comma separated string  | same as [LCW](#lcw) sam field               | The probability list of units to be used as SAM Groups in the zone. The available values are the ones defined in [SAM TEMPLATES](#sam). Empty string will use defaults.                                                                                                                                         |
-| groundunits    | comma separated string  | same as [LCW](#lcw) groundunits field | The probability list of units to be used as unit types for RED Ground groups in the zone. The available values are the unit type names used in the mission editor. The list of these names is the one find [HERE](). Empty string will use defaults.                                                            |
-| shipunits      | comma separated string  | same as [LCW](#lcw) shipunits field | The probability list of units to be used as unit types for RED Ship groups in the zone. The available values are the unit type names used in the mission editor. The list of these names is the one find [HERE](). Empty string will use defaults.                                                              |
-| caplimit       | number                  | 1                    | The limit number of RED CAP groups in the zone                                                                                                                                                                                                                                                                  |
-| captotal       | number                  | 6                    | The limit number of units for RED CAP groups in the zone. Each killed units of RED CAP groups will decrease this value by one                                                                                                                                                                                   |
-| bluecaplimit   | number                  | 1                    | The limit number of BLUE CAP groups in the zone                                                                                                                                                                                                                                                                 |
-| bluecaptotal   | number                  | 100000               | The limit number of units for BLUE CAP groups in the zone. Each killed units of BLUE CAP groups will decrease this value by one                                                                                                                                                                                 |
-| groundlimit    | number                  | 2                    | The limit number of RED Ground groups in the zone                                                                                                                                                                                                                                                               |
-| groundtotal    | number                  | 12                   | The limit number of units for RED Ground groups in the zone. Each killed units of RED Ground groups will decrease this value by one                                                                                                                                                                             |
-| shiplimit      | number                  | 0                    | The limit number of RED Ship groups in the zone                                                                                                                                                                                                                                                                 |
-| shiptotal      | number                  | 0                    | The limit number of units for RED Ship groups in the zone. Each killed units of RED Ship groups will decrease this value by one                                                                                                                                                                                 |
-| samlimit       | number                  | 2                    | The limit number of RED SAM groups in the zone                                                                                                                                                                                                                                                                  |
-| samselfdefense | 0 or 1                  | 1                    | "1" will enable the "Engage Air Weapons" option in spawned RED SAM sites for self-defense. "0" will disable it.                                                                                                                                                                                                 |
-| redawacs       | number                  | 0                    | Limit number of respawning A50 RED AWACS systems in the area (always 1 awacs at a time will scan the area)                                                                                                                                                                                                      |
-| redskills      | comma separated string  | Good,Average,Average | Probability list of Skills assigned to RED units. Available values are Average, Good, High, Excellent                                                                                                                                                                                                           |
-| blueskills     | comma separated string  | High,High,Excellent | Probability list of Skills assigned to BLUE units. Available values are Average, Good, High, Excellent                                                                                                                                                                                                          |
-| starttype      | "Runway" or "Air"       | Runway               | When spawning RED or BLUE AIR groups, it defines whether to search for the nearest available airfield for the coalition ("Runway") or not ("Air"). If found, groups will start from that airfiled, otherwise they will spawn mid-air in the zone. See more on [RUNWAY START](#runway-start)                     |
-| jtac           | "0" or "1"              | 1                    | Choose whether to activate Autolase JTAC in the zone from the start or not. "1" makes it available from start, "0" needs the related support purchase to have it in the zone.                                                                                                                                   |
-| tgt_coord      | "0" or "1"              | 1                    | Choose whether to activate ZONE TARGETS Report in the zone from the start or not. "1" makes it available from start, "0" needs the related support purchase to have it in the zone.                                                                                                                             |
-| ground_coord   | "0" or "1"              | 1                    | Choose whether to activate Ground groups Report in the zone from the start or not. "1" makes it available from start, "0" needs the related support purchase to have it in the zone.                                                                                                                            |
-| awacs_coord    | "0" or "1"              | 1                    | Choose whether to activate AWACS-LIKE Report in the zone from the start or not. "1" makes it available from start, "0" needs the related support purchase to have it in the zone.                                                                                                                               |
-| big_smoke      | "0" or "1"              | 1                    | "1" fills zone area with random black explosion smoke effects                                                                                                                                                                                                                                                   |
-| bluefreq       | number                  | 257                  | Radio frequency for BLUE spawned units in the zone                                                                                                                                                                                                                                                              |
-| escalation     | number                  | 100                  | Starting probability threshold to spawn "WEAPONS FREE" or "RETURN FIRE" RED CAP Groups. See more on [ESCALATION](#escalation)                                                                                                                                                                                            |
+| PROPERTY       | VALUE                   | DEFAULT              | NOTES                                                                                                                                                                                                                                                                                                                                                                                   |
+|----------------|-------------------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| template       | "ECW" or "LCW" or "MOD" | LCW                  | The units type template pack to be used in the zone. Setting templates will assign by default the fields cap, bluecap, sam, groundunits and shipunits to simulate an Early Cold War "ECW", Cold War "LCW" or Modern "MOD" scenario. Setting one of the above fields in the zone will remove the template usage.                                                                         |
+| invert         | "0" or "1"              | 0                    | When using the template logic, setting invert to "1" will assign cap as bluecap and vice-versa. A special bluesam field in templates is used to assign the sam field.                                                                                                                                                                                                                   |
+| cap            | comma separated string  | _empty_              | The probability list of units to be used as RED CAP in the zone. The available values are the ones defined in [CAP TEMPLATES](#cap). Empty string will use defaults.                                                                                                                                                                                                                    |
+| bluecap        | comma separated string  | _empty_              | The probability list of units to be used as BLUE CAP in the zone. The available values are the ones defined in [CAP TEMPLATES](#cap). Empty string will use defaults.                                                                                                                                                                                                                   |
+| sam            | comma separated string  | _empty_              | The probability list of units to be used as SAM Groups in the zone. The available values are the ones defined in [SAM TEMPLATES](#sam). Empty string will use defaults.                                                                                                                                                                                                                 |
+| groundunits    | comma separated string  | _empty_              | The probability list of units to be used as unit types for RED Ground groups in the zone. The available values are the unit type names used in the mission editor. The list of these names is the one find [HERE](https://github.com/mrSkortch/DCS-miscScripts/tree/master/ObjectDB), open the unit.lua file you want to use and copy "typeName" field. Empty string will use defaults. |
+| shipunits      | comma separated string  | _empty_              | The probability list of units to be used as unit types for RED Ship groups in the zone. The available values are the unit type names used in the mission editor. The list of these names is the one find [HERE](https://github.com/mrSkortch/DCS-miscScripts/tree/master/ObjectDB), open the unit.lua file you want to use and copy "typeName" field. Empty string will use defaults.                                                                     |
+| caplimit       | number                  | 1                    | The limit number of RED CAP groups in the zone                                                                                                                                                                                                                                                                                                                                          |
+| captotal       | number                  | 6                    | The limit number of units for RED CAP groups in the zone. Each killed units of RED CAP groups will decrease this value by one                                                                                                                                                                                                                                                           |
+| bluecaplimit   | number                  | 1                    | The limit number of BLUE CAP groups in the zone                                                                                                                                                                                                                                                                                                                                         |
+| bluecaptotal   | number                  | 100000               | The limit number of units for BLUE CAP groups in the zone. Each killed units of BLUE CAP groups will decrease this value by one                                                                                                                                                                                                                                                         |
+| groundlimit    | number                  | 2                    | The limit number of RED Ground groups in the zone                                                                                                                                                                                                                                                                                                                                       |
+| groundtotal    | number                  | 12                   | The limit number of units for RED Ground groups in the zone. Each killed units of RED Ground groups will decrease this value by one                                                                                                                                                                                                                                                     |
+| shiplimit      | number                  | 0                    | The limit number of RED Ship groups in the zone                                                                                                                                                                                                                                                                                                                                         |
+| shiptotal      | number                  | 0                    | The limit number of units for RED Ship groups in the zone. Each killed units of RED Ship groups will decrease this value by one                                                                                                                                                                                                                                                         |
+| samlimit       | number                  | 2                    | The limit number of RED SAM groups in the zone                                                                                                                                                                                                                                                                                                                                          |
+| samselfdefense | 0 or 1                  | 1                    | "1" will enable the "Engage Air Weapons" option in spawned RED SAM sites for self-defense. "0" will disable it.                                                                                                                                                                                                                                                                         |
+| redawacs       | number                  | 0                    | Limit number of respawning A50 RED AWACS systems in the area (always 1 awacs at a time will scan the area)                                                                                                                                                                                                                                                                              |
+| redskills      | comma separated string  | Good,Average,Average | Probability list of Skills assigned to RED units. Available values are Average, Good, High, Excellent                                                                                                                                                                                                                                                                                   |
+| blueskills     | comma separated string  | Good,Average,Average | Probability list of Skills assigned to BLUE units. Available values are Average, Good, High, Excellent                                                                                                                                                                                                                                                                                  |
+| starttype      | "Runway" or "Air"       | Runway               | When spawning RED or BLUE AIR groups, it defines whether to search for the nearest available airfield for the coalition ("Runway") or not ("Air"). If found, groups will start from that airfiled, otherwise they will spawn mid-air in the zone. See more on [RUNWAY START](#runway-start)                                                                                             |
+| jtac           | "0" or "1"              | 1                    | Choose whether to activate Autolase JTAC in the zone from the start or not. "1" makes it available from start, "0" needs the related support purchase to have it in the zone.                                                                                                                                                                                                           |
+| tgt_coord      | "0" or "1"              | 1                    | Choose whether to activate ZONE TARGETS Report in the zone from the start or not. "1" makes it available from start, "0" needs the related support purchase to have it in the zone.                                                                                                                                                                                                     |
+| ground_coord   | "0" or "1"              | 1                    | Choose whether to activate Ground groups Report in the zone from the start or not. "1" makes it available from start, "0" needs the related support purchase to have it in the zone.                                                                                                                                                                                                    |
+| awacs_coord    | "0" or "1"              | 1                    | Choose whether to activate AWACS-LIKE Report in the zone from the start or not. "1" makes it available from start, "0" needs the related support purchase to have it in the zone.                                                                                                                                                                                                       |
+| big_smoke      | "0" or "1"              | 1                    | "1" fills zone area with random black explosion smoke effects                                                                                                                                                                                                                                                                                                                           |
+| bluefreq       | number                  | 257                  | Radio frequency for BLUE spawned units in the zone                                                                                                                                                                                                                                                                                                                                      |
+| escalation     | number                  | 100                  | Starting probability threshold to spawn "WEAPONS FREE" or "RETURN FIRE" RED CAP Groups. See more on [ESCALATION](#escalation)                                                                                                                                                                                                                                                           |
 
 ## CONFIGURATION CONCEPTS
 
@@ -216,7 +219,7 @@ Using an airfield as runway is available only for "Airbase" type (no Carriers, n
 
 If no airfields are available, the spawning point is automatically set as "Air".
 
-BEWARE! There are airfields that are defined as "Airbase", but don't allow some AI jets to take-off (runway too short). Better not use them as coalition-assigned, or to use "Air" as "starttype" if they have to be used by clients.
+BEWARE! There are airfields that are defined as "Airbase", but don't allow some AI jets to take-off (runway too short). Better not use them as coalition-assigned, or to use "Air" as "starttype" if they have to be used by clients. 
 
 ## TEMPLATES DEFINITION
 
@@ -231,7 +234,7 @@ BEWARE! There are airfields that are defined as "Airbase", but don't allow some 
                     "Strela-1 9P31", "Grad-URAL", "SAU Msta", "Scud_B", "ZiL-131 APA-80",
                     "ATZ-5", "ATZ-5", "GAZ-66", "GAZ-66", "GAZ-66", "GAZ-66", "GAZ-66",
                     "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469" },
-["sam"] = { "AAA", "AAA",  "AAA",  "AAA", "AAA", "AAA", "AAA", "EWR", "S9", "S9" },
+["sam"] = { "AAA", "AAA",  "AAA",  "AAA", "AAA", "AAA", "AAA", "EWR", "SA9", "SA9" },
 ["bluesam"] = { "AAA", "AAA",  "AAA",  "AAA", "AAA", "AAA", "AAA", "EWR", "NASAM" },
 ["shipunits"] = { "MOLNIYA", "CastleClass_01", "La_Combattante_II", "CastleClass_01", "La_Combattante_II",
                   "speedboat", "speedboat", "speedboat", "speedboat", "speedboat" }
@@ -246,7 +249,7 @@ BEWARE! There are airfields that are defined as "Airbase", but don't allow some 
                     "Grad-URAL", "SAU Msta", "Scud_B", "ZiL-131 APA-80",
                     "ATZ-5", "ATZ-5", "GAZ-66", "GAZ-66", "GAZ-66", "GAZ-66", "GAZ-66",
                     "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469" },
-["sam"] = {  "SA2", "SA8", "SA8", "SA8", "SA8", "S9","S13", "S9", "S15", "S15", "EWR" },
+["sam"] = {  "SA2", "SA8", "SA8", "SA8", "SA8", "SA9","SA13", "SA9", "SA15", "SA15", "EWR" },
 ["bluesam"] = {  "AAA", "AAA", "EWR", "NASAM", "NASAM", "NASAM", "NASAM" },
 ["shipunits"] = {  "CastleClass_01", "La_Combattante_II", "speedboat", "speedboat", "speedboat" }
 ```
@@ -260,8 +263,8 @@ BEWARE! There are airfields that are defined as "Airbase", but don't allow some 
                     "Strela-1 9P31", "Grad-URAL", "SAU Msta", "Scud_B", "ZiL-131 APA-80",
                     "ATZ-5", "ATZ-5", "GAZ-66", "GAZ-66", "GAZ-66", "GAZ-66", "GAZ-66",
                     "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469" },
-["sam"] = { "S10", "SA11","SA11", "SA2", "SA2", "SA6", "SA6", "SA6", "SA8", "SA8",
-            "SA8", "SA8", "SA8", "SA8", "SA8", "S15", "S15", "EWR" },
+["sam"] = { "SA10", "SA11","SA11", "SA2", "SA2", "SA6", "SA6", "SA6", "SA8", "SA8",
+            "SA8", "SA8", "SA8", "SA8", "SA8", "SA15", "SA15", "EWR" },
 ["bluesam"] = { "NASAM","NASAM","NASAM","NASAM","NASAM","NASAM","EWR","HAWK","HAWK",},
 ["shipunits"] = { "MOLNIYA", "CastleClass_01", "La_Combattante_II", "CastleClass_01", "La_Combattante_II",
                   "speedboat", "speedboat", "speedboat", "speedboat", "speedboat" }
@@ -298,14 +301,14 @@ BEWARE! There are airfields that are defined as "Airbase", but don't allow some 
 * SA6
 * SA2
 * SA8
-* S10
-* S3
-* S13
-* S15
-* S9
+* SA10
+* SA3
+* SA13
+* SA15
+* SA9
 * AAA
 * EWR
-* NASAM
+* NASAMS
 * HAWK
 
 ## What's the future of WARZONES?
@@ -321,7 +324,6 @@ Actual plans are:
 * Add Static objects support for ZONE TARGETS
 * Add possibility to define custom group templates from editor and use them in probability lists
 * If possible, support squared-shaped zones
-* Persistence in client slot usage
 
 ## How to sanitize my DCS?
 
