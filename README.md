@@ -2,6 +2,11 @@
 
 ### Are you searching for a dynamic, persistent, randomized, customizable, simple to install and simple to configure script for your missions? Then D.C.S "WARZONES" may be what you are looking for!
 
+[![https://github.com/Pantera93/dcs-warzones/releases/latest](https://img.shields.io/github/v/release/Pantera93/dcs-warzones?style=for-the-badge)](https://github.com/Pantera93/dcs-warzones/releases/latest)
+[![https://github.com/Pantera93/dcs-warzones/releases/latest](https://img.shields.io/github/downloads/Pantera93/dcs-warzones/total?style=for-the-badge)](https://github.com/Pantera93/dcs-warzones/releases/latest)
+[![https://www.buymeacoffee.com/pantera93](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-yellow?label=Donate&style=for-the-badge)](https://www.buymeacoffee.com/pantera93)
+
+
 ## What is "WARZONES"?
 
 WARZONES is a standalone mission script that works with trigger zones.
