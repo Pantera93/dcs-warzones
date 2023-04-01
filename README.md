@@ -4,7 +4,7 @@
 
 [![https://github.com/Pantera93/dcs-warzones/releases/latest](https://img.shields.io/github/v/release/Pantera93/dcs-warzones?style=for-the-badge)](https://github.com/Pantera93/dcs-warzones/releases/latest)
 [![https://github.com/Pantera93/dcs-warzones/releases/latest](https://img.shields.io/github/downloads/Pantera93/dcs-warzones/total?style=for-the-badge)](https://github.com/Pantera93/dcs-warzones/releases/latest)
-[![https://www.buymeacoffee.com/pantera93](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-yellow?label=Donate&style=for-the-badge)](https://www.buymeacoffee.com/pantera93)
+[![https://www.buymeacoffee.com/pantera93](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-yellow?label=Pantera93&style=for-the-badge)](https://www.buymeacoffee.com/pantera93)
 
 
 ## What is "WARZONES"?
@@ -21,8 +21,6 @@ It focuses on a PvE BLUE Client vs. RED A.I. scenario, even though it can suppor
 
 Being standalone, WARZONES doesn't need any additional framework, but it is fully compatible to be used along with others (Mist, Moose, CTLD,...).
 It is also compatible with DSMC to achieve random date or weather swapping (just DISABLE the option to keep spawned units on DSMC special page).
-
-WARZONES will be forever free, but if you feel like it, I will gladly accept a beer from you here: https://www.buymeacoffee.com/pantera93
 
 ## How to use "WARZONES"?
 
@@ -378,6 +376,7 @@ Thank you for trying out DCS WARZONES!
 
 WARZONES will be forever free, and hopefully will follow you until DCS releases the Dynamic Campaign feature.
 
-If you feel like it, I will gladly accept a beer from you here: https://www.buymeacoffee.com/pantera93
+If you feel like it, I will gladly accept a beer from you here: 
+[![https://www.buymeacoffee.com/pantera93](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-yellow?label=Pantera93&style=for-the-badge)](https://www.buymeacoffee.com/pantera93)
 
 ### Fly safe and happy hunting!
