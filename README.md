@@ -2,11 +2,6 @@
 
 ### Are you searching for a dynamic, persistent, randomized, customizable, simple to install and simple to configure script for your missions? Then D.C.S "WARZONES" may be what you are looking for!
 
-[![https://github.com/Pantera93/dcs-warzones/releases/latest](https://img.shields.io/github/v/release/Pantera93/dcs-warzones?style=for-the-badge)](https://github.com/Pantera93/dcs-warzones/releases/latest)
-[![https://github.com/Pantera93/dcs-warzones/releases/latest](https://img.shields.io/github/downloads/Pantera93/dcs-warzones/total?style=for-the-badge)](https://github.com/Pantera93/dcs-warzones/releases/latest)
-[![https://www.buymeacoffee.com/pantera93](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-yellow?label=Pantera93&style=for-the-badge)](https://www.buymeacoffee.com/pantera93)
-
-
 ## What is "WARZONES"?
 
 WARZONES is a standalone mission script that works with trigger zones.
@@ -21,6 +16,8 @@ It focuses on a PvE BLUE Client vs. RED A.I. scenario, even though it can suppor
 
 Being standalone, WARZONES doesn't need any additional framework, but it is fully compatible to be used along with others (Mist, Moose, CTLD,...).
 It is also compatible with DSMC to achieve random date or weather swapping (just DISABLE the option to keep spawned units on DSMC special page).
+
+WARZONES will be forever free, but if you feel like it, I will gladly accept a beer from you here: https://www.buymeacoffee.com/pantera93
 
 ## How to use "WARZONES"?
 
@@ -171,7 +168,7 @@ Commas in these type of fields should not be followed or preceded by spaces (str
 | redawacs       | number                                | 0                            | Limit number of respawning A50 RED AWACS systems in the area (always 1 awacs at a time will scan the area)                                                                                                                                                                                                                                                                              |
 | redskills      | comma separated string                | Good,Average,Average         | Probability list of Skills assigned to RED units. Available values are Average, Good, High, Excellent                                                                                                                                                                                                                                                                                   |
 | blueskills     | comma separated string                | Good,Average,Average         | Probability list of Skills assigned to BLUE units. Available values are Average, Good, High, Excellent                                                                                                                                                                                                                                                                                  |
-| starttype      | "Runway" / "Hot" / "Cold" / "Air" | Runway                       | When spawning RED or BLUE AIR groups, it defines whether to search for the nearest available airfield for the coalition ("Runway" / "Hot" / "Cold") or not ("Air"). If found, groups will start from that airfiled, otherwise they will spawn mid-air in the zone. See more on [RUNWAY START](#runway-start)                                                                             |
+| starttype      | "Runway" / "Hot" / "Cold" / "Air" | Runway                       | When spawning RED or BLUE AIR groups, it defines whether to search for the nearest available airfield for the coalition ("Runway" / "Hot" / "Cold") or not ("Air"). If found, groups will start from that airfiled, otherwise they will spawn mid-air in the zone. See more on [RUNWAY START](#runway-start)                                                                            |
 | jtac           | "0" or "1"                            | 1                            | Choose whether to activate Autolase JTAC in the zone from the start or not. "1" makes it available from start, "0" needs the related support purchase to have it in the zone.                                                                                                                                                                                                           |
 | tgt_coord      | "0" or "1"                            | 1                            | Choose whether to activate ZONE TARGETS Report in the zone from the start or not. "1" makes it available from start, "0" needs the related support purchase to have it in the zone.                                                                                                                                                                                                     |
 | ground_coord   | "0" or "1"                            | 1                            | Choose whether to activate Ground groups Report in the zone from the start or not. "1" makes it available from start, "0" needs the related support purchase to have it in the zone.                                                                                                                                                                                                    |
@@ -179,6 +176,7 @@ Commas in these type of fields should not be followed or preceded by spaces (str
 | big_smoke      | "0" or "1"                            | 1                            | "1" fills zone area with random black explosion smoke effects                                                                                                                                                                                                                                                                                                                           |
 | bluefreq       | number                                | 257                          | Radio frequency for BLUE spawned units in the zone                                                                                                                                                                                                                                                                                                                                      |
 | escalation     | number                                | 100                          | Starting probability threshold to spawn "WEAPONS FREE" or "RETURN FIRE" RED CAP Groups. See more on [ESCALATION](#escalation)                                                                                                                                                                                                                                                           |
+| intercept      | "0" or "1"                            | 0                          | RED Cap groups will spawn only when a blue aerial unit is inside the relative zone. This is the first implementation, it won't work with spawned blue cap units and it will detect all invisible aerial units placed in the mission editor that fly in the zone (like awacs or tankers).In the future will work with a DETECTED units logic.                                            |
 
 ## CONFIGURATION CONCEPTS
 
@@ -232,22 +230,53 @@ BEWARE n°2! For "Hot" and "Cold" "starttype"s parking spots are picked semi-ran
 
 ### TEMPLATE PACKS
 
+#### _VNM_
+
+Simulation of a Vietnam scenario
+
+```
+["cap"] = { "M15" },
+["bluecap"] = { "F86", "F86", "F5" },
+["ground"] = { "COLUMN" },
+["groundunits"] = { "ZiL-131 APA-80","Infantry AK Ins","Infantry AK Ins","Infantry AK Ins","Infantry AK Ins",
+                    "Infantry AK Ins","Infantry AK Ins","Infantry AK Ins","Infantry AK Ins","Infantry AK Ins",
+                    "Infantry AK Ins","Infantry AK Ins","Infantry AK Ins","Infantry AK Ins","Infantry AK Ins",
+                    "Infantry AK Ins","Infantry AK Ins","Infantry AK Ins","Infantry AK Ins","Infantry AK Ins",
+                    "Infantry AK Ins","Infantry AK Ins","Infantry AK Ins","Infantry AK Ins","Infantry AK Ins",
+                    "outpost","outpost","outpost_road","outpost_road","house2arm","house2arm","house2arm",
+                    "ATZ-5", "ATZ-5", "GAZ-66", "GAZ-66", "GAZ-66", "GAZ-66", "GAZ-66",
+                    "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469" },
+["sam"] = { "AAAOLD", "AAAOLD",  "AAAOLD",  "AAAOLD", "AAAOLD", "AAAOLD", "AAAOLD", "AAAOLD", "AAAOLD", "AAAOLD", "AAAOLD",
+            "AAAOLD", "AAAOLD",  "AAAOLD",  "AAA", "EWR", "SA9" },
+["bluesam"] = { "AAA", "AAA",  "AAA",  "AAA", "AAA", "AAA", "AAA", "EWR", "NASAM" },
+["ship"] = { "COLUMN" },
+["shipunits"] = { "speedboat"},
+```
+
 #### _ECW_
+
+Simulation of an Early Cold War scenario
+
 ```
 ["cap"] = { "M15","M15","M15", "M15","M19","M19"},
 ["bluecap"] = { "F86", "F86", "F5" },
-["groundunits"] = { "BMP-1", "BMP-1", "T-55", "BMP-1", "T-55",
-                    "HL_DSHK", "HL_DSHK", "HL_DSHK", "HL_DSHK", "HL_DSHK", "ZSU_57_2", "ZSU_57_2",
-                    "Strela-1 9P31", "Grad-URAL", "SAU Msta", "Scud_B", "ZiL-131 APA-80",
+["ground"] = { "COLUMN" },
+["groundunits"] = { "BMP-1", "T-55",
+                    "HL_DSHK", "HL_DSHK", "HL_DSHK", "HL_DSHK", "HL_DSHK", "ZSU_57_2",
+                    "Grad-URAL", "ZiL-131 APA-80",
                     "ATZ-5", "ATZ-5", "GAZ-66", "GAZ-66", "GAZ-66", "GAZ-66", "GAZ-66",
                     "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469" },
-["sam"] = { "AAA", "AAA",  "AAA",  "AAA", "AAA", "AAA", "AAA", "EWR", "SA9", "SA9" },
+["sam"] = { "AAAOLD", "AAAOLD",  "AAAOLD",  "AAAOLD", "AAAOLD", "AAA", "AAA", "EWR", "SA9", "SA9" },
 ["bluesam"] = { "AAA", "AAA",  "AAA",  "AAA", "AAA", "AAA", "AAA", "EWR", "NASAM" },
+["ship"] = { "COLUMN" },
 ["shipunits"] = { "MOLNIYA", "CastleClass_01", "La_Combattante_II", "CastleClass_01", "La_Combattante_II",
-                  "speedboat", "speedboat", "speedboat", "speedboat", "speedboat" }
+                  "speedboat", "speedboat", "speedboat", "speedboat", "speedboat" },
 ```
 
 #### _LCW_
+
+Simulation of a Mid-Late Cold War scenario
+
 ```
 ["cap"] = { "M19","M21","M21","M23","M19","M19","MF1","MF1","M21","M21","M23","M29"},
 ["bluecap"] = { "F4","F4","F4","F14", "F14", },
@@ -262,6 +291,9 @@ BEWARE n°2! For "Hot" and "Cold" "starttype"s parking spots are picked semi-ran
 ```
 
 #### _MOD_
+
+Simulation of a Modern scenario
+
 ```
 ["cap"] = { "M23", "M29", "M29", "M29", "M25", "M25", "M31", "S27", "S27", "S33" },
 ["bluecap"] = { "F15","F15", "F16", "F16", "F16", "F16", "F18", "F18", "F18", },
@@ -376,7 +408,6 @@ Thank you for trying out DCS WARZONES!
 
 WARZONES will be forever free, and hopefully will follow you until DCS releases the Dynamic Campaign feature.
 
-If you feel like it, I will gladly accept a beer from you here: 
-[![https://www.buymeacoffee.com/pantera93](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-yellow?label=Pantera93&style=for-the-badge)](https://www.buymeacoffee.com/pantera93)
+If you feel like it, I will gladly accept a beer from you here: https://www.buymeacoffee.com/pantera93
 
 ### Fly safe and happy hunting!
