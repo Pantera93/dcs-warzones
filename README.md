@@ -84,9 +84,11 @@ Each killed unit will decrease RED resources and give you an amount of money to 
 * Pop smoke on ground units and sam sites
 * Let the BLUE CAP Groups go weapons free in the area.
 
-From "WAR Zones" F10 radio commands you can also check how mush money is left for BLUE coalition with "Economic status" option and toggle the visibility of radio reports with the "Toggle radio report" command.
+From "WAR Zones" F10 radio commands you can also check how much money is left for BLUE coalition with "Economic status" option and toggle the visibility of radio reports with the "Toggle radio report" command.
 
 If you placed more than one "WAR-" zone you can select which one your group should have reports of and on which one to call supports. Radio commands and messages are multiplayer-synchronized.
+
+The group zone selection and preferences for displaying radio reports is persistently saved for next rounds.
 
 The reaper drone will also help you by constantly lasing one unit at a time on laser code 1578.
 
