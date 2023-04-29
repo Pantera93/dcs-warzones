@@ -100,7 +100,7 @@ The WARZONES environment in a mission can be fine-tuned via configuration. This 
 
 WARZONES configuration is quite simple to perform, but it's maybe hard to understand how every function works.
 
-First of all, to configure WARZONES, you have to add and set its PROPERTIES. This is a mission editor trigger zone section you can find under the zone color picker. for each configuration you want to change, you simply add a property, use a specific name for the "key" (left) field and then input your custom "value" (right) field.
+First of all, to configure WARZONES, you have to add and set their PROPERTIES. This is a mission editor trigger zone section you can find under the zone color picker. for each configuration you want to change, you simply add a property, use a specific name for the "key" (left) field and then input your custom "value" (right) field.
 
 ![](Images/zone.jpg)
 
@@ -112,13 +112,15 @@ Now to the core section of this guide, the table of properties you can use in ea
 
 ### GLOBAL-ONLY PROPERTIES:
 
-| PROPERTY         | VALUE | DEFAULT                          | NOTES                                                                                                                                                                                                                                                                                 |
-|------------------| --- |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| filename         | string | Missions\\WARZONES\\WARZONES.lua | The filename you want your mission progress to be saved in, the root is your DCS Saved Games folder                                                                                                                                                                                   |
-| economic_mode    | 0 or 1 | 1                                | Defines whether the radio zone support commands need the right amount of money to be used or if they are always free to use.<br />"1" sets the money boundaries for supports                                                                                                          |
-| money            | number | 3000                             | Starting money for the blue coalition                                                                                                                                                                                                                                                 |
-| replace_services | 0 or 1 | 1                                | Defines whether to automatically respawn user-created BLUE AWACS and Tankers when they land or abort mission (intended for long-running missions).<br />Respawned units will have same route, tasks, frequency, callsign and options as the original one.<br />"1" is respawn enabled |
-| slotlock         | 0 or 1 | 0                                | If "1", When a BLUE Client unit is killed or crashed, no player can use it until the units are unlocked via radio support command                                                                                                                                                     |
+| PROPERTY         | VALUE    | DEFAULT               | NOTES                                                                                                                                                                                                                                                                                 |
+|------------------|----------|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| filename         | string   | WARZONES\WARZONES.lua | The filename you want your mission progress to be saved in, the root is your DCS Saved Games folder                                                                                                                                                                                   |
+| economic_mode    | 0 or 1   | 1                     | Defines whether the radio zone support commands need the right amount of money to be used or if they are always free to use.<br />"1" sets the money boundaries for supports                                                                                                          |
+| money            | number   | 3000                  | Starting money for the blue coalition                                                                                                                                                                                                                                                 |
+| replace_services | 0 or 1   | 1                     | Defines whether to automatically respawn user-created BLUE AWACS and Tankers when they land or abort mission (intended for long-running missions).<br />Respawned units will have same route, tasks, frequency, callsign and options as the original one.<br />"1" is respawn enabled |
+| slotlock         | 0 or 1   | 0                     | If "1", When a BLUE Client unit is killed or crashed, no player can use it until the units are unlocked via radio support command                                                                                                                                                     |
+| enableradio      | 0 or 1   | 1                     | If "1", Radio reports are enabled for each client group by default. If "0" they start disabled. Groups will always be able to enable them back. Persistence will overwrite this configuration                                                                                         |
+| coordsformat      | DEC or DEG | DEC                    | DEC is for decimal degrees (DDD°MM.XXX'). DEG is for degrees and seconds (DDD°MM'SS.XX'')                                                                                                                                                                                              |
 
 
 ### GLOBAL-ONLY MONEY-RELATED PROPERTIES:
@@ -150,7 +152,6 @@ A special mention here has to be done for "comma separated string" values. These
 * In another zone, the field value is "_M21_". This means that the only group type spawning for RED CAP is a Mig-21 group.
 * In yet another zone, the field value is "_M19,M21,M21,M21,MF1_". This means that there is a 20% (20% x 1) chance to spawn a Mig-19 group, a 60% chance (20% x 3) to spawn a Mig-21 group and a 20% (20% x 1) chance to spawn Mirage-F1.
 
-Commas in these type of fields should not be followed or preceded by spaces (string "_M21, M19_" WILL NOT WORK)
 
 | PROPERTY       | VALUE                             | DEFAULT                      | NOTES                                                                                                                                                                                                                                                                                                                                                                                   |
 |----------------|-----------------------------------|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -262,9 +263,9 @@ Simulation of a Vietnam scenario
                     "outpost","outpost_road","house2arm","house2arm",
                     "ATZ-5", "ATZ-5", "GAZ-66", "GAZ-66", "GAZ-66", "GAZ-66", "GAZ-66",
                     "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469" },
-["sam"] = { "AAAOLD", "AAAOLD",  "AAAOLD",  "AAAOLD", "AAAOLD", "AAAOLD", "AAAOLD", "AAAOLD", "AAAOLD", "AAAOLD", "AAAOLD",
-            "AAAOLD", "AAAOLD",  "AAAOLD",  "AAA", "EWR", "SA9" },
-["bluesam"] = { "AAAOLD", "AAAOLD",  "AAAOLD",  "AAAOLD", "AAAOLD", "AAA", "AAA", "EWR", "NASAM" },
+["sam"] = { "FLAK", "FLAK", "FLAK", "FLAK", "FLAK", "FLAK", "FLAK", "FLAK", "FLAK", "FLAK", "FLAK", "FLAK", "FLAK", "FLAK", "FLAK", 
+            "Z23", "Z23", "EWR"},
+["bluesam"] = { "Z23", "Z23",  "Z23",  "Z23", "Z23", "Z57", "Z57", "EWR", "NASAM" },
 ["ship"] = { "COLUMN" },
 ["shipunits"] = { "speedboat"},
 ```
@@ -286,8 +287,8 @@ Simulation of an Early Cold War scenario
                     "house2arm","outpost_road",
                     "ATZ-5", "ATZ-5", "GAZ-66", "GAZ-66", "GAZ-66", "GAZ-66", "GAZ-66",
                     "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469" },
-["sam"] = { "AAAOLD", "AAAOLD",  "AAAOLD",  "AAAOLD", "AAAOLD", "AAA", "AAA", "EWR", "SA9", "SA9" },
-["bluesam"] = { "AAA", "AAA",  "AAA",  "AAA", "AAA", "AAA", "AAA", "EWR", "NASAM" },
+["sam"] = {"FLAK","FLAK","FLAK","FLAK", "Z23", "Z23",  "Z23",  "Z23", "Z23", "Z57", "Z57", "EWR", "SA9", "SA9" },
+["bluesam"] = { "Z57", "Z57",  "Z57",  "Z57", "Z57", "Z57", "Z57", "EWR", "NASAM" },
 ["ship"] = { "COLUMN" },
 ["shipunits"] = { "MOLNIYA", "CastleClass_01", "La_Combattante_II", "CastleClass_01", "La_Combattante_II",
                   "speedboat", "speedboat", "speedboat", "speedboat", "speedboat" },
@@ -310,7 +311,7 @@ Simulation of a Mid-Late Cold War scenario
                     "ATZ-5", "ATZ-5", "GAZ-66", "GAZ-66", "GAZ-66", "GAZ-66", "GAZ-66",
                     "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469", "UAZ-469" },
 ["sam"] = {  "SA2", "SA8", "SA8", "SA8", "SA8", "SA9","SA13", "SA9", "SA15", "SA15", "EWR" },
-["bluesam"] = {  "AAA", "AAA", "EWR", "NASAM", "NASAM", "NASAM", "NASAM" },
+["bluesam"] = {  "Z57", "Z57", "EWR", "NASAM", "NASAM", "NASAM", "NASAM" },
 ["ship"] = { "COLUMN" },
 ["shipunits"] = {  "CastleClass_01", "La_Combattante_II", "speedboat", "speedboat", "speedboat" },
 ```
@@ -388,8 +389,9 @@ Simulation of a Modern scenario
 * SA13
 * SA15
 * SA9
-* AAA
-* AAAOLD
+* Z57
+* Z23
+* FLAK
 * EWR
 * NASAMS
 * HAWK
