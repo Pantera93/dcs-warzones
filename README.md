@@ -21,6 +21,8 @@ It focuses on a PvE BLUE Client vs. RED A.I. scenario, even though it can suppor
 Being standalone, WARZONES doesn't need any additional framework, but it is fully compatible to be used along with others (Mist, Moose, CTLD,...).
 It is also compatible with DSMC to achieve random date or weather swapping (just DISABLE the option to keep spawned units on DSMC special page).
 
+#### THE ONLY FOUND NON-COMPATIBILITY AT THE MOMENT IS WITH "SPLASH DAMAGE" SCRIPT. NEEDS FURTHER INVESTIGATION FOR A WORK-AROUND
+
 ## How to use "WARZONES"?
 
 Grab the last warzones_x.x.lua release from [HERE](https://github.com/Pantera93/dcs-warzones/releases/latest). It is a single LUA file.
