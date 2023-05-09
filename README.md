@@ -252,6 +252,8 @@ Said flag can be activated through scripting or via mission editor. Beware that 
 
 If "persistflag" war-config property is set to "1", the activation of flags registered as "activationflag" is persistently saved in your save file, and those flags will be re-activated in next rounds at startup. You can choose to set this value to "0" to avoid automatically re-activate warzones in next rounds (to activate warzones only when needed for training missions, for example).
 
+BEWARE that zones check happens once every minute, so it may take at most one minute to see a zone conquered, and its flag activated, and at most another minute to see other zones activated. 
+
 ## TEMPLATES DEFINITION
 
 ### TEMPLATE PACKS
