@@ -141,9 +141,10 @@ Now to the core section of this guide, the table of properties you can use in ea
 | groundcoordmoney | 2000    | Money required to permanently activate coordinates reports for a zone for RED Ground groups moving in the area            |
 | tgtcoordmoney    | 2500    | Money required to permanently activate coordinates reports for a zone for ZONE TARGET groups in the area                  |
 | awacsmoney       | 2500    | Money required to permanently activate BRA calls in the report for a zone for every RED CAP group in the area             |
-| smokemoney       | 800     | Money required to pop smoke in a zone on RED Ground groups, zone targets,  sam sites and ships                            |
+| smokemoney       | 400     | Money required to pop smoke and signal flares in a zone on RED Ground groups, zone targets,  sam sites and ships          |
+| lightmoney       | 800     | Money required to release illumination bombs in a zone on RED Ground groups, zone targets,  sam sites and ships           |
 | freezonemoney    | 800     | Money required to make BLUE units in a zone VISIBLE and WEAPONS FREE                                                      |
-| unlockmoney      | 5000    | Money required to restore BLUE client units                                            |
+| unlockmoney      | 5000    | Money required to restore BLUE client units                                                                               |
 | blueloss         | 0       | Amount of money lost when a BLUE CAP unit or a BLUE Player controlled unit is killed (must be a positive value if used)   |
 
 
