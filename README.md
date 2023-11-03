@@ -94,6 +94,10 @@ The group zone selection and preferences for displaying radio reports is persist
 
 The reaper drone will also help you by constantly lasing one unit at a time on laser code 1578.
 
+With "Services status" menù, you will receive informations about BLUE tankers, AWACS and carriers in the map (Radio frequency, TACAN, altitude, remaining fuel, ...)
+
+If you fly a compatible helicopter, with the "Transport troops" menu, you will access features to buy and deploy (virtual) ground troops in the battlefield. See [TRANSPORT TROOPS](#troops-transport) section for more informations. 
+
 Now, let's say you finished liberating a zone, and you just landed for a beer... What to do next? DELETE your persistence file and start over, the experience will always be different, I promise! Or try a new map, change the zone position and dimension, add more "WAR-" zones or do anything you want. Or else... go to the next, most complicated but most satisfactory section [HOW TO CONFIGURE](#how-to-configure-warzones)...
 
 ## How to configure WARZONES?
@@ -124,28 +128,34 @@ Now to the core section of this guide, the table of properties you can use in ea
 | enableradio      | 0 or 1     | 1                     | If "1", Radio reports are enabled for each client group by default. If "0" they start disabled. Groups will always be able to enable them back. Persistence will overwrite this configuration                                                                                         |
 | coordsformat     | DEC or DEG | DEC                   | DEC is for decimal degrees (DDD°MM.XXX'). DEG is for degrees and seconds (DDD°MM'SS.XX'')                                                                                                                                                                                             |
 | persistflags     | 0 or 1     | 1                     | If "1", trigger flags that activate warzones are re-activated at mission start if necessary (see [FLAG ACTIVATION](#flag-activation))                                                                                                                                                 |
+| conquerairbases  | 0 or 1     | 1                     | If "1", every RED airbase inside a newly conquered zone will turn BLUE. At mission start of each consequent turn, this condition is restored                                                                                                                                          |
+| troopstransport  | 0 or 1     | 1                     | If "1", activates the ability to use troops transport in helicopters                                                                                                                                                                                                                  |
 
 
 ### GLOBAL-ONLY MONEY-RELATED PROPERTIES:
 
-| PROPERTY         | DEFAULT | NOTES                                                                                                                     |
-|------------------|---------|---------------------------------------------------------------------------------------------------------------------------|
-| capgain          | 800     | Amount of money received when destroying a RED unit belonging to a CAP Group                                              |
-| groundgain       | 150     | Amount of money received when destroying a RED unit belonging to a Ground group                                           |
-| samgain          | 200     | Amount of money received when destroying a RED unit belonging to a SAM Group                                              |
-| shipgain         | 500     | Amount of money received when destroying a RED unit belonging to a SHIP Group                                             |
-| awacsgain        | 1500    | Amount of money received when destroying a RED AWACS unit                                                                 |
-| tgtgain          | 1000    | Amount of money received when destroying a RED unit belonging to a ZONE TARGET Group                                      |
-| increasecapmoney | 5000    | Money required to permanently increase bluecaplimit in a zone                                                             |
-| jtacmoney        | 1500    | Money required to permanently activate Autolase JTAC for the first ground group and the first target zone group in a zone |
-| groundcoordmoney | 2000    | Money required to permanently activate coordinates reports for a zone for RED Ground groups moving in the area            |
-| tgtcoordmoney    | 2500    | Money required to permanently activate coordinates reports for a zone for ZONE TARGET groups in the area                  |
-| awacsmoney       | 2500    | Money required to permanently activate BRA calls in the report for a zone for every RED CAP group in the area             |
-| smokemoney       | 400     | Money required to pop smoke and signal flares in a zone on RED Ground groups, zone targets,  sam sites and ships          |
-| lightmoney       | 800     | Money required to release illumination bombs in a zone on RED Ground groups, zone targets,  sam sites and ships           |
-| freezonemoney    | 800     | Money required to make BLUE units in a zone VISIBLE and WEAPONS FREE                                                      |
-| unlockmoney      | 5000    | Money required to restore BLUE client units                                                                               |
-| blueloss         | 0       | Amount of money lost when a BLUE CAP unit or a BLUE Player controlled unit is killed (must be a positive value if used)   |
+| PROPERTY          | DEFAULT | NOTES                                                                                                                     |
+|-------------------|---------|---------------------------------------------------------------------------------------------------------------------------|
+| capgain           | 800     | Amount of money received when destroying a RED unit belonging to a CAP Group                                              |
+| groundgain        | 150     | Amount of money received when destroying a RED unit belonging to a Ground group                                           |
+| samgain           | 200     | Amount of money received when destroying a RED unit belonging to a SAM Group                                              |
+| shipgain          | 500     | Amount of money received when destroying a RED unit belonging to a SHIP Group                                             |
+| awacsgain         | 1500    | Amount of money received when destroying a RED AWACS unit                                                                 |
+| tgtgain           | 1000    | Amount of money received when destroying a RED unit belonging to a ZONE TARGET Group                                      |
+| increasecapmoney  | 5000    | Money required to permanently increase bluecaplimit in a zone                                                             |
+| jtacmoney         | 1500    | Money required to permanently activate Autolase JTAC for the first ground group and the first target zone group in a zone |
+| groundcoordmoney  | 2000    | Money required to permanently activate coordinates reports for a zone for RED Ground groups moving in the area            |
+| tgtcoordmoney     | 2500    | Money required to permanently activate coordinates reports for a zone for ZONE TARGET groups in the area                  |
+| awacsmoney        | 2500    | Money required to permanently activate BRA calls in the report for a zone for every RED CAP group in the area             |
+| smokemoney        | 400     | Money required to pop smoke and signal flares in a zone on RED Ground groups, zone targets,  sam sites and ships          |
+| lightmoney        | 800     | Money required to release illumination bombs in a zone on RED Ground groups, zone targets,  sam sites and ships           |
+| freezonemoney     | 800     | Money required to make BLUE units in a zone VISIBLE and WEAPONS FREE                                                      |
+| unlockmoney       | 5000    | Money required to restore BLUE client units                                                                               |
+| blueloss          | 0       | Amount of money lost when a BLUE CAP unit or a BLUE Player controlled unit is killed (must be a positive value if used)   |
+| groundtroopsmoney | 500     | Money required to request a ground attack transported group                                                               |
+| recontroopsmoney  | 400     | Money required to request a recon transported group                                                                       |
+| samtroopsmoney    | 2000    | Money required to request a sam busting transported group                                                                 |
+| targettroopsmoney | 5000    | Money required to request a target busting transported group                                                              |
 
 
 ### GLOBAL AND ZONE-SPECIFIC PROPERTIES:
@@ -257,6 +267,49 @@ If "persistflag" war-config property is set to "1", the activation of flags regi
 
 BEWARE that zones check happens once every minute, so it may take at most one minute to see a zone conquered, and its flag activated, and at most another minute to see other zones activated. 
 
+### TROOPS TRANSPORT
+
+With warzones version 0.9, you will be able to load virtual ground troops on your helicopter and use them to destroy targets or to recon the battlefield.
+
+Usage of this feature is deliberately inspired by what you can find in the great "Enigma Cold War" multiplayer servers. These are the key concepts:
+* Each client helicopter GROUP has a number of seats available defined by its type (mods support may come later): 
+* * UH-1H 13 seats
+* * Mi-24P 8 seats
+* * SA342 variants 3 seats
+* * Mi-8MT 24 seats
+* WARNING! Each helicopter GROUP has that maximum amount of seats, NOT UNIT! This means that if you want to fly with your friend and carry double the amount of troops, you must have 2 different GROUPS in the mission editor (this may change if I can find an elegant solution in the future)
+
+
+* There are 4 types of ground troops available, each of them occupies a different amount of seats: 
+* * Ground attack troops (5 seats)
+* * S.A.M. busting troops (8 seats)
+* * Target busting troops (12 seats)
+* * Recon troops (3 seats)
+
+
+* You must be on the ground and within 2 nautical miles from a BLUE airbase to purchase and load troops or to refund them (FARPS and carriers support will come later)
+
+
+* To UNLOAD and use Ground attack and S.A.M. busting troops, group leader must be on ground and within 3 nm miles from a suitable warzone target. This means that you won't necessarily need to be INSIDE a warzone.
+
+
+* To UNLOAD and use Target busting troops, group leader must be on ground and within 1 nm miles from a suitable warzone target. This means that you won't necessarily need to be INSIDE a warzone.
+
+
+* Ground attack troops will attack the nearest GROUND warzones group and destroy every one of its units. You will receive money from their destruction, increase warzone escalation and activate weapons free in the zone, as if you destroyed them "manually". Ground troops take 5 minutes from their deployment to finish their job.
+
+
+* S.A.M. busting troops will attack the nearest SAM warzones group and destroy every one of its units. This operation is persistent and you will receive money from their destruction, increase warzone escalation and activate weapons free in the zone, as if you destroyed them "manually". S.A.M. busting troops take 8 minutes from their deployment to finish their job.
+
+
+* Target busting troops will attack the nearest TARGET warzones group (being that auto-generated or not) and destroy every one of its units. This operation is persistent and you will receive money from their destruction, increase warzone escalation and activate weapons free in the zone, as if you destroyed them "manually". Target busting troops take 12 minutes from their deployment to finish their job. If you let these troops destroy the last warzone TARGET, that particular warzone will be conquered.
+
+
+* To UNLOAD and use Recon troops, group leader must be on ground. Recon troops will recon an area of 10 nm in radius from their deployed position. Each ground, S.A.M., target and ship warzones units within that area will be marked on the F10 map (however, marks won't move with moving units).
+
+
+* Troops deployment is "fire and forget". there is no "recovery" logic for troops at the moment. It may come in later in the development.
+
 ## TEMPLATES DEFINITION
 
 ### TEMPLATE PACKS
@@ -329,7 +382,8 @@ Simulation of a Mid-Late Cold War scenario
 ["sam"] = {  "SA2", "SA8", "SA8", "SA8", "SA8", "SA9","SA13", "SA9", "SA15", "SA15", "EWR" },
 ["bluesam"] = {  "Z57", "Z57", "EWR", "NASAM", "NASAM", "NASAM", "NASAM" },
 ["ship"] = { "COLUMN" },
-["shipunits"] = {  "CastleClass_01", "La_Combattante_II", "speedboat", "speedboat", "speedboat" },
+["shipunits"] = { "MOLNIYA", "CastleClass_01", "La_Combattante_II", "CastleClass_01", "La_Combattante_II",
+                              "speedboat", "speedboat", "speedboat", "speedboat", "speedboat" }
 ```
 
 #### _MOD_
@@ -421,10 +475,12 @@ I will gladly receive your feedback and bug reports and I will do the best I can
 Actual plans are:
 
 * Increase number and variety of templates (add WW2 planes)
-* Add helicopters, CAS flights and SEAD flights as BLUE support or RED forces
+* Add helicopter flights as BLUE support or RED forces
 * Add Static objects support for ZONE TARGETS
 * Add possibility to define custom group templates from editor and use them in probability lists
 * If possible, support squared-shaped zones
+* Support carriers and farps as starting positions for A.I.
+* Create a 2-way multiplayer experience
 
 Follow the roadmap [HERE](https://github.com/Pantera93/dcs-warzones/issues)
 
@@ -465,6 +521,7 @@ Although WARZONE is a 100% original content, and every line of code is built fro
 * DCS Mission Creation Toolbox (DML): https://forum.dcs.world/topic/290975-dml-mission-creation-toolbox-no-lua-required/
 * DCS Complete Troops and Logistics Deployment (CTLD): https://github.com/ciribob/DCS-CTLD
 * DCS DSMC: https://dsmcfordcs.wordpress.com/
+* Enigma Cold War Campaign: https://forum.dcs.world/topic/287464-enigmas-dynamic-cold-war-campaign-pvppve-server/
 
 ## THANK YOU
 
