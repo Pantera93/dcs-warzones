@@ -495,7 +495,9 @@ To add your own groups as templates along with predefined ones, you can create a
 
 Next, add their group name in the probability lists _cap_, _bluecap_, _bluecas_, _bluesead_, _bluesam_, _sam_ ([ZONE SPECIFIC CONFIGURATION](#global-and-zone-specific-properties)).
 
-WARNING!: Leave the starting waypoint for each group as it is and try to match the task you are creating the group for in WARZONES with the one you choose in the mission editor. 
+WARNING!: Leave the starting waypoint for each group as it is and try to match the task you are creating the group for in WARZONES with the one you choose in the mission editor.
+
+MISSION EXAMPLE WILL COME SOON IN THE [RELEASES](https://github.com/Pantera93/dcs-warzones/releases/latest) PAGE!
 
 ## What's the future of WARZONES?
 
