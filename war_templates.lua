@@ -184,7 +184,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -716,7 +715,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -1035,7 +1033,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -1335,7 +1332,7 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-                            ["airdromeId"] = 1,
+                            
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -1670,7 +1667,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -1986,7 +1982,7 @@ if not warzones.war_templates then
                 ["frequency"] = 257,
             },
             ["F14"] = {
-                ["carriersWithCatapult"] = true,
+                ["carrier"] = true,
                 ["lateActivation"] = false,
                 ["tasks"] =
                 {
@@ -2006,7 +2002,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -2381,7 +2376,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -2729,7 +2723,7 @@ if not warzones.war_templates then
                 ["frequency"] = 257,
             },
             ["F18"] = {
-                ["carriersWithCatapult"] = true,
+                ["carrier"] = true,
                 ["lateActivation"] = false,
                 ["tasks"] =
                 {
@@ -2749,7 +2743,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -3149,7 +3142,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -3477,8 +3469,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -3789,8 +3779,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -4102,8 +4090,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -4425,8 +4411,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -4750,8 +4734,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -5036,8 +5018,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -5338,8 +5318,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -5656,8 +5634,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -6006,8 +5982,6 @@ if not warzones.war_templates then
                             ["action"] = "Turning Point",
                             ["alt_type"] = "BARO",
                             ["speed"] = 260,
-
-                            ["airdromeId"] = 1,
                             ["task"] =
                             {
                                 ["id"] = "ComboTask",
@@ -8208,7 +8182,7 @@ if not warzones.war_templates then
                 ["frequency"] = 257,
             },
             ["F18"] = {
-                ["carriersWithCatapult"] = true,
+                ["carrier"] = true,
                 ["modulation"] = 0,
                 ["tasks"] =
                 {
@@ -8882,6 +8856,89 @@ if not warzones.war_templates then
                 ["communication"] = true,
                 ["start_time"] = 0,
                 ["frequency"] = 257,
+            },
+        },
+        ["HELI"] = {
+            ["UH1H"] = {
+                ["dynSpawnTemplate"] = false,
+                ["lateActivation"] = true,
+                ["tasks"] = {},
+                ["radioSet"] = false,
+                ["task"] = "cas",
+                ["uncontrolled"] = false,
+                ["route"] =
+                {
+                    ["routeRelativeTOT"] = true,
+                    ["points"] =
+                    {
+                        [1] =
+                        {
+                            ["alt"] = 500,
+                            ["action"] = "Turning Point",
+                            ["alt_type"] = "BARO",
+                            ["speed"] = 46.25,
+                            ["task"] =
+                            {
+                                ["id"] = "ComboTask",
+                                ["params"] =
+                                {
+                                    ["tasks"] = {},
+                                }, -- end of ["params"]
+                            }, -- end of ["task"]
+                            ["type"] = "Turning Point",
+                            ["ETA"] = 0,
+                            ["ETA_locked"] = true,
+                            ["y"] = 542187.416973,
+                            ["x"] = -326945.68388179,
+                            ["speed_locked"] = true,
+                            ["formation_template"] = "",
+                        }, -- end of [1]
+                    }, -- end of ["points"]
+                }, -- end of ["route"]
+                ["groupId"] = 9,
+                ["hidden"] = false,
+                ["units"] =
+                {
+                    [1] =
+                    {
+                        ["alt"] = 500,
+                        ["alt_type"] = "BARO",
+                        ["livery_id"] = "Hellenic Navy",
+                        ["skill"] = "High",
+                        ["ropeLength"] = 15,
+                        ["speed"] = 46.25,
+                        ["type"] = "SH-60B",
+                        ["unitId"] = 16,
+                        ["psi"] = 0,
+                        ["onboard_num"] = "021",
+                        ["y"] = 542187.416973,
+                        ["x"] = -326945.68388179,
+                        ["name"] = "S60-1",
+                        ["payload"] =
+                        {
+                            ["pylons"] = {},
+                            ["fuel"] = "1100",
+                            ["flare"] = 30,
+                            ["chaff"] = 30,
+                            ["gun"] = 100,
+                        }, -- end of ["payload"]
+                        ["heading"] = -1.6000873101291,
+                        ["callsign"] =
+                        {
+                            [1] = 6,
+                            [2] = 1,
+                            ["name"] = "Ford11",
+                            [3] = 1,
+                        }, -- end of ["callsign"]
+                    }, -- end of [1]
+                }, -- end of ["units"]
+                ["y"] = 542187.416973,
+                ["x"] = -326945.68388179,
+                ["name"] = "S60",
+                ["communication"] = true,
+                ["start_time"] = 0,
+                ["modulation"] = 0,
+                ["frequency"] = 127.5,
             },
         },
         ["GROUND"] = {
