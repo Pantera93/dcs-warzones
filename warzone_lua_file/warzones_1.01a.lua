@@ -17722,37 +17722,43 @@ function warzones.checkCustomGroup(task, groupName)
     if task == 'SAM' then
         check = 'vehicle'
     end
-    for _, ev in pairs(env.mission.coalition.blue.country) do
-        if ev[check] then
-            if ev[check].group then
-                for _, eev in pairs(ev[check].group) do
-                    if eev.name and eev.name == groupName then
-                        if warzones.checkTasks(task, eev) then
-                            warzones.war_templates[task][groupName] = warzones.deepcopy(eev)
 
-                            return true
+    local blue = env.mission.coalition.blue
+    if blue and blue.country then
+        for _, ev in pairs(blue.country) do
+            if ev[check] then
+                if ev[check].group then
+                    for _, eev in pairs(ev[check].group) do
+                        if eev.name and eev.name == groupName then
+                            if warzones.checkTasks(task, eev) then
+                                warzones.war_templates[task][groupName] = warzones.deepcopy(eev)
+
+                                return true
+                            end
                         end
                     end
                 end
             end
         end
     end
-    for _, ev in pairs(env.mission.coalition.red.country) do
-        if ev[check] then
-            if ev[check].group then
-                for _, eev in pairs(ev[check].group) do
-                    if eev.name and eev.name == groupName then
-                        if warzones.checkTasks(task, eev) then
-                            warzones.war_templates[task][groupName] = warzones.deepcopy(eev)
+    local red = env.mission.coalition.red
+    if red and red.country then
+        for _, ev in pairs(red.country) do
+            if ev[check] then
+                if ev[check].group then
+                    for _, eev in pairs(ev[check].group) do
+                        if eev.name and eev.name == groupName then
+                            if warzones.checkTasks(task, eev) then
+                                warzones.war_templates[task][groupName] = warzones.deepcopy(eev)
 
-                            return true
+                                return true
+                            end
                         end
                     end
                 end
             end
         end
     end
-    -- Fix to Local neutral Error
     local neutral = env.mission.coalition.neutral
     if neutral and neutral.country then
         for _, ev in pairs(neutral.country) do
