@@ -13201,6 +13201,62 @@ function warzones.newTargetId()
     return warzones.war_config.targetId
 end
 
+-- Ransomize SADL
+function warzones.randomizeSADL(grp)
+    local airKey = math.random(1, 50)
+    local gateway = math.random(1, 50)
+    for _, u in pairs(grp.units) do
+        if u.datalinks and u.datalinks.SADL then
+            u.datalinks.SADL.settings.AirKey = airKey
+            u.datalinks.SADL.settings.GatewayKey = gateway
+        end
+    end
+end
+
+-- Randomize SADL_net
+function warzones.assignSADL(grp, flightNumber)
+    local airKey = math.random(1, 50)
+    for index, u in ipairs(grp.units) do
+        if u.datalinks and u.datalinks.SADL then
+            u.datalinks.SADL.settings.AirKey = airKey
+        end
+        if u.AddPropAircraft then
+            local tn = string.format("%02d%02d", flightNumber, index)
+            u.AddPropAircraft.SADL_TN = tn
+        end
+    end
+end
+
+-- Randomize F16 datalink
+function warzones.randomizeF16Link16(grp)
+    local channel = math.random(1, 20)
+    for _, u in pairs(grp.units) do
+        if u.datalinks and u.datalinks.Link16 then
+            -- ["specialChannel"] = 1,
+            -- ["fighterChannel"] = 1,
+            ---["missionChannel"] = 1,
+            u.datalinks.Link16.settings.fighterChannel = channel
+            u.datalinks.Link16.settings.missionChannel = channel
+            u.datalinks.Link16.settings.specialChannel = channel
+        end
+    end
+end
+
+-- Randomize F-18 datalink
+function warzones.randomizeF18Link16(grp)
+    local channel = math.random(1, 5)
+    for _, u in pairs(grp.units) do
+        if u.datalinks and u.datalinks.Link16 then
+            -- AIC_Channel"] = 1
+            -- VOCA_Channel"] = 4
+            -- VOCB_Channel"] = 5
+            u.datalinks.Link16.settings.AIC_Channel = channel
+            u.datalinks.Link16.settings.VOCA_Channel = channel
+            u.datalinks.Link16.settings.VOCB_Channel = channel
+        end
+    end
+end
+
 -- Function to get random coalition country
 function warzones.randomCountry(blue)
     if blue then
