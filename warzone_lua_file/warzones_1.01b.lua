@@ -13215,7 +13215,7 @@ end
 
 -- Randomize SADL_net
 function warzones.assignSADL(grp, flightNumber)
-    local airKey = math.random(1, 50)
+    local airKey = math.random(20, 50)
     for index, u in ipairs(grp.units) do
         if u.datalinks and u.datalinks.SADL then
             u.datalinks.SADL.settings.AirKey = airKey
